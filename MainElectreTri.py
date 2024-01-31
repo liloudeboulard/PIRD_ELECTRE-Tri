@@ -8,10 +8,10 @@ import Process
 
 # Import of data from csv file as a Pandas Dataframe
 d = pd.read_csv('Input_data.csv')
-P = 0 # trial and error
+P = 0.018 # trial and error
 d['P'] = P
 λ = 0.75
-repetition = 1
+repetition = 400
 
 
 
@@ -61,33 +61,15 @@ def Elec_tri(data, rep):
     # repetitions
     for i in range(rep):
         newdata = PreProcess.MC(data)
-        newdata.to_csv('newdata.csv')
-        
         newref = PreProcess.refIntervals(data)
         
         dconca, dconcb = Process.conc(newdata, newref)
-        dconca.to_csv('dconca.csv')
-        dconcb.to_csv('dconcb.csv')
-        
         ddisca, ddiscb = Process.disco(newdata, newref)
-        ddisca.to_csv('ddisca.csv')
-        ddiscb.to_csv('ddiscb.csv')
-        
         dgconca = Process.gconc(newdata, dconca)
-        dgconca.to_csv('dgconca.csv')
-        
         dgconcb = Process.gconc(newdata, dconcb)
-        dgconcb.to_csv('dgconcb.csv')
-        
         dcreda = Process.credibility(dgconca, ddisca)
-        dcreda.to_csv('dcreda.csv')
-        
         dcredb = Process.credibility(dgconcb, ddiscb)
-        dcredb.to_csv('dcredb.csv')
-        
         dranking = Process.over_ranking_relations(dcreda, dcredb, λ)
-        dranking.to_csv('dranking.csv')
-        
         opti_sort = Process.optimistic_sort(dranking, opti_sort)
         pessi_sort = Process.pessimistic_sort(dranking, pessi_sort)
     pessi_sort = pessi_sort.apply(lambda x: (x / rep) * 100)  # %
@@ -103,14 +85,12 @@ p_sorting_transposed['Total'] = 100
 
 # Creation of csv files containing the repartition of the scenarios
 # in the categories as percentages
-# p_sorting.to_csv('pessimistic_sorting.csv')
-# o_sorting.to_csv('optimistic_sorting.csv')
+p_sorting.to_csv('pessimistic_sorting.csv')
+o_sorting.to_csv('optimistic_sorting.csv')
 
-"""
 # Printing of the optimistic and pessimistic sorting
 print("The optimistic sorting of the scenarios is:")
 print(o_sorting_transposed)
 
 print("The pessimistic sorting of the scenarios is:")
 print(p_sorting_transposed)
-"""

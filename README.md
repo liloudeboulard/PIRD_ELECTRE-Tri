@@ -4,6 +4,8 @@ RESULTS NOT VERIFIED
 
 The repository presents the implementation of a new multi-criteria analysis procedure. This new procedure allows to consider the variability of the reference profiles (intervals) for the definition of the categories in the ELECTRE-Tri method. The multi-criteria analysis method used in this report is thus the probabilistic ELECTRE-Tri (Basser, 2023. This new procedure is applied to a case study of energy renovation of a building (Gauthier et Viala, 2023).
 
+Reading order below.
+
 The repository contains:
 
 Notebooks:
