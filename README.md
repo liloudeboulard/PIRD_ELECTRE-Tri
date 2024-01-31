@@ -33,4 +33,4 @@ Other:
 
 *Daniel, S.; Ghiaus, C. Multi-Criteria Decision Analysis for Energy Retrofit of Residential Buildings: Methodology and Feedback from Real Application. Energies 2023, 16, 902. https://doi.org/10.3390/en16020902*
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/liloudeboulard/PIRD_INSA-Lyon_ELECTRE-Tri/tree/RefProfiles_Intervals/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/liloudeboulard/PIRD_ELECTRE-Tri/HEAD)
